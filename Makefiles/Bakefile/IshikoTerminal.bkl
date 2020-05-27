@@ -31,6 +31,12 @@ library IshikoTerminal
     {
         ../../Include/Ishiko/Terminal.h
 
+        ../../Include/Ishiko/Terminal/TerminalOutput.h
         ../../Include/Ishiko/Terminal/linkoptions.h
+    }
+
+    sources
+    {
+        ../../Source/TerminalOutput.cpp
     }
 }

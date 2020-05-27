@@ -150,7 +150,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\TerminalOutput.cpp" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="..\..\Include\Ishiko\Terminal.h" />
+    <ClInclude Include="..\..\Include\Ishiko\Terminal\TerminalOutput.h" />
     <ClInclude Include="..\..\Include\Ishiko\Terminal\linkoptions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
