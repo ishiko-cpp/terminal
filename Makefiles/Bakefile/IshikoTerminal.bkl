@@ -1,0 +1,36 @@
+toolsets = gnu vs2017 vs2015 vs2013;
+
+gnu.makefile = ../GNUmakefile/GNUmakefile;
+vs2017.solutionfile = ../VC15/IshikoTerminal.sln;
+vs2015.solutionfile = ../VC14/IshikoTerminal.sln;
+vs2013.solutionfile = ../VC12/IshikoTerminal.sln;
+
+library IshikoTerminal
+{
+    archs = x86 x86_64;
+
+    includedirs += ../../Include/Ishiko/Terminal;
+
+    if ($(toolset) == gnu)
+    {
+        cxx-compiler-options = "-std=c++11";
+        outputdir = ../../Lib;
+    }
+
+    if ($(toolset) != gnu)
+    {
+        outputdir = ../../Lib/$(arch);
+    }
+
+    if ($(config) == Debug)
+    {
+        basename = IshikoTerminal-d;
+    }
+
+    headers
+    {
+        ../../Include/Ishiko/Terminal.h
+
+        ../../Include/Ishiko/Terminal/linkoptions.h
+    }
+}
