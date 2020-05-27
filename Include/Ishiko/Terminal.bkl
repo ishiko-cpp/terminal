@@ -1,0 +1,20 @@
+setting ISHIKO_CPP_TERMINAL_ROOT
+{
+    help = "Path to the Ishiko Terminal installation";
+    default = '$(ISHIKO_CPP)/Terminal';
+}
+
+template IshikoTerminal
+{
+    includedirs += $(ISHIKO_CPP_TERMINAL_ROOT)/Include;
+
+    if ($(toolset) == gnu)
+    {
+        libdirs += $(ISHIKO_CPP_TERMINAL_ROOT)/Lib;
+    }
+
+    if ($(toolset) != gnu)
+    {
+        libdirs += $(ISHIKO_CPP_TERMINAL_ROOT)/Lib/$(arch);
+    }
+}
