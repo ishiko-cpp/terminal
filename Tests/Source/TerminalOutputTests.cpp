@@ -16,23 +16,25 @@
     FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
     THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OROTHER DEALINGS
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
     IN THE SOFTWARE.
 */
 
-#ifndef _ISHIKO_TERMINAL_TERMINALOUTPUT_H_
-#define _ISHIKO_TERMINAL_TERMINALOUTPUT_H_
+#include "TerminalOutputTests.h"
+#include "Ishiko/Terminal/TerminalOutput.h"
 
-namespace Ishiko
-{
-namespace Terminal
-{
+using namespace Ishiko::Terminal;
+using namespace Ishiko::Tests;
 
-class TerminalOutput
+TerminalOutputTests::TerminalOutputTests(const TestNumber& number, const TestEnvironment& environment)
+    : TestSequence(number, "TerminalOutput tests", environment)
 {
-};
-
-}
+    append<HeapAllocationErrorsTest>("Construction test 1", ConstructionTest1);
 }
 
-#endif
+void TerminalOutputTests::ConstructionTest1(Test& test)
+{
+    TerminalOutput output;
+
+    ISHTF_PASS();
+}

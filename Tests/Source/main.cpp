@@ -20,6 +20,7 @@
     IN THE SOFTWARE.
 */
 
+#include "TerminalOutputTests.h"
 #include <Ishiko/TestFramework/TestFrameworkCore.h>
 
 using namespace Ishiko::Tests;
@@ -27,6 +28,9 @@ using namespace Ishiko::Tests;
 int main(int argc, char* argv[])
 {
     TestHarness theTestHarness("IshikoTerminal");
+
+    TestSequence& theTests = theTestHarness.tests();
+    theTests.append<TerminalOutputTests>();
 
     return theTestHarness.run();
 }

@@ -19,8 +19,14 @@ program IshikoTerminalTests : IshikoTerminal, IshikoTestFrameworkCore
         libs += IshikoTerminal IshikoTestFrameworkCore IshikoProcess IshikoErrors boost_filesystem boost_system;
     }
 
+    headers
+    {
+        ../../Source/TerminalOutputTests.h
+    }
+
     sources
     {
         ../../Source/main.cpp
+        ../../Source/TerminalOutputTests.cpp
     }
 }
