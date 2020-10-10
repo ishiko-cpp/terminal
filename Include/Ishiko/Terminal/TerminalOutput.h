@@ -33,6 +33,7 @@ namespace Terminal
 class TerminalOutput
 {
 public:
+    void write(const const char* text);
     void write(const std::string& text);
 };
 

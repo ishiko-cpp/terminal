@@ -27,6 +27,11 @@ namespace Ishiko
 namespace Terminal
 {
 
+void TerminalOutput::write(const char* text)
+{
+    printf(text);
+}
+
 void TerminalOutput::write(const std::string& text)
 {
     printf(text.c_str());

@@ -33,6 +33,7 @@ TerminalOutputTests::TerminalOutputTests(const TestNumber& number, const TestEnv
 {
     append<HeapAllocationErrorsTest>("Construction test 1", ConstructionTest1);
     append<FileComparisonTest>("write test 1", WriteTest1);
+    append<FileComparisonTest>("write test 2", WriteTest2);
 }
 
 void TerminalOutputTests::ConstructionTest1(Test& test)
@@ -53,6 +54,24 @@ void TerminalOutputTests::WriteTest1(FileComparisonTest& test)
 
     TerminalOutput output;
     output.write("text");
+
+    Ishiko::Process::CurrentProcess::RedirectStandardOutputToTerminal();
+
+    ISHTF_PASS();
+}
+
+void TerminalOutputTests::WriteTest2(FileComparisonTest& test)
+{
+    boost::filesystem::path outputPath(test.environment().getTestOutputDirectory() / "TerminalOutputTests_WriteTest2.txt");
+    boost::filesystem::remove(outputPath);
+    test.setOutputFilePath(outputPath);
+    test.setReferenceFilePath(test.environment().getReferenceDataDirectory() / "TerminalOutputTests_WriteTest2.txt");
+
+    Ishiko::Process::CurrentProcess::RedirectStandardOutputToFile(outputPath.string());
+
+    TerminalOutput output;
+    std::string text = "text";
+    output.write(text);
 
     Ishiko::Process::CurrentProcess::RedirectStandardOutputToTerminal();
 
