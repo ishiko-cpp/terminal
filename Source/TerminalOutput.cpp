@@ -21,3 +21,16 @@
 */
 
 #include "TerminalOutput.h"
+
+namespace Ishiko
+{
+namespace Terminal
+{
+
+void TerminalOutput::write(const std::string& text)
+{
+    printf(text.c_str());
+}
+
+}
+}

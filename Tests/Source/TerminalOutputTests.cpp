@@ -22,6 +22,8 @@
 
 #include "TerminalOutputTests.h"
 #include "Ishiko/Terminal/TerminalOutput.h"
+#include <Ishiko/Process/CurrentProcess.h>
+#include <boost/filesystem/operations.hpp>
 
 using namespace Ishiko::Terminal;
 using namespace Ishiko::Tests;
@@ -30,11 +32,29 @@ TerminalOutputTests::TerminalOutputTests(const TestNumber& number, const TestEnv
     : TestSequence(number, "TerminalOutput tests", environment)
 {
     append<HeapAllocationErrorsTest>("Construction test 1", ConstructionTest1);
+    append<FileComparisonTest>("write test 1", WriteTest1);
 }
 
 void TerminalOutputTests::ConstructionTest1(Test& test)
 {
     TerminalOutput output;
+
+    ISHTF_PASS();
+}
+
+void TerminalOutputTests::WriteTest1(FileComparisonTest& test)
+{
+    boost::filesystem::path outputPath(test.environment().getTestOutputDirectory() / "TerminalOutputTests_WriteTest1.txt");
+    boost::filesystem::remove(outputPath);
+    test.setOutputFilePath(outputPath);
+    test.setReferenceFilePath(test.environment().getReferenceDataDirectory() / "TerminalOutputTests_WriteTest1.txt");
+
+    Ishiko::Process::CurrentProcess::RedirectStandardOutputToFile(outputPath.string());
+
+    TerminalOutput output;
+    output.write("text");
+
+    Ishiko::Process::CurrentProcess::RedirectStandardOutputToTerminal();
 
     ISHTF_PASS();
 }

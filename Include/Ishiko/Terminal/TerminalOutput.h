@@ -23,6 +23,8 @@
 #ifndef _ISHIKO_TERMINAL_TERMINALOUTPUT_H_
 #define _ISHIKO_TERMINAL_TERMINALOUTPUT_H_
 
+#include <string>
+
 namespace Ishiko
 {
 namespace Terminal
@@ -30,9 +32,13 @@ namespace Terminal
 
 class TerminalOutput
 {
+public:
+    void write(const std::string& text);
 };
 
 }
 }
+
+#include "linkoptions.h"
 
 #endif
