@@ -23,6 +23,7 @@
 #ifndef _ISHIKO_TERMINAL_TERMINALOUTPUT_H_
 #define _ISHIKO_TERMINAL_TERMINALOUTPUT_H_
 
+#include <Ishiko/Types/Color.h>
 #include <string>
 
 namespace Ishiko
@@ -35,6 +36,8 @@ class TerminalOutput
 public:
     void write(const char* text);
     void write(const std::string& text);
+    void write(const char* text, const Color& color);
+    void write(const std::string& text, const Color& color);
 };
 
 }
