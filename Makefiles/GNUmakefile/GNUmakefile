@@ -33,6 +33,11 @@ override CXXFLAGS += -O2
 else ifneq (,$(config))
 $(warning Unknown configuration "$(config)")
 endif
+#
+# Additionally, this makefile is customizable with the following
+# settings:
+#
+#      ISHIKO_CPP_TYPES_ROOT  Path to the Ishiko Types installation
 
 # Use "make RANLIB=''" for platforms without ranlib.
 RANLIB ?= ranlib
@@ -54,6 +59,16 @@ _builddir := $(if $(findstring $(abspath $(builddir)),$(builddir)),,../../)$(bui
 _builddir_error := $(shell mkdir -p $(_builddir) 2>&1)
 $(if $(_builddir_error),$(error Failed to create build directory: $(_builddir_error)))
 endif
+
+# ------------
+# Configurable settings:
+# 
+
+# Path to the Ishiko Types installation
+ISHIKO_CPP_TYPES_ROOT ?= $(ISHIKO_CPP)/Types
+
+# ------------
+
 all: ../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),IshikoTerminal-d,IshikoTerminal).a
 
 ../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),IshikoTerminal-d,IshikoTerminal).a: $(_builddir)IshikoTerminal_TerminalOutput.o
@@ -61,7 +76,7 @@ all: ../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),IshikoTerminal
 	$(RANLIB) $@
 
 $(_builddir)IshikoTerminal_TerminalOutput.o: ../../Source/TerminalOutput.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I../../Include/Ishiko/Terminal -std=c++11 ../../Source/TerminalOutput.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_TYPES_ROOT)/Include -I../../Include/Ishiko/Terminal -std=c++11 ../../Source/TerminalOutput.cpp
 
 clean:
 	rm -f $(_builddir)*.o

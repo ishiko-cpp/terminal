@@ -37,6 +37,7 @@ endif
 # Additionally, this makefile is customizable with the following
 # settings:
 #
+#      ISHIKO_CPP_TYPES_ROOT          Path to the Ishiko Types installation
 #      ISHIKO_CPP_TERMINAL_ROOT       Path to the Ishiko Terminal installation
 #      BOOST_ROOT                     Path to the Boost installation
 #      ISHIKO_CPP_ERRORS_ROOT         Path to the Ishiko Errors installation
@@ -62,6 +63,8 @@ endif
 # Configurable settings:
 # 
 
+# Path to the Ishiko Types installation
+ISHIKO_CPP_TYPES_ROOT ?= $(ISHIKO_CPP)/Types
 # Path to the Ishiko Terminal installation
 ISHIKO_CPP_TERMINAL_ROOT ?= $(ISHIKO_CPP)/Terminal
 # Path to the Boost installation
@@ -78,13 +81,13 @@ ISHIKO_CPP_TESTFRAMEWORK_ROOT ?= $(ISHIKO_CPP)/TestFramework
 all: $(_builddir)IshikoTerminalTests
 
 $(_builddir)IshikoTerminalTests: $(_builddir)IshikoTerminalTests_main.o $(_builddir)IshikoTerminalTests_TerminalOutputTests.o
-	$(CXX) -o $@ $(LDFLAGS) $(_builddir)IshikoTerminalTests_main.o $(_builddir)IshikoTerminalTests_TerminalOutputTests.o -L$(ISHIKO_CPP_TERMINAL_ROOT)/Lib -L$(ISHIKO_CPP_ERRORS_ROOT)/Lib -L$(ISHIKO_CPP_PROCESS_ROOT)/Lib -L$(BOOST_ROOT)/lib -L$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/Lib -lIshikoTerminal -lIshikoTestFrameworkCore -lIshikoProcess -lIshikoErrors -lboost_filesystem -lboost_system -pthread
+	$(CXX) -o $@ $(LDFLAGS) $(_builddir)IshikoTerminalTests_main.o $(_builddir)IshikoTerminalTests_TerminalOutputTests.o -L$(ISHIKO_CPP_TYPES_ROOT)/Lib -L$(ISHIKO_CPP_TERMINAL_ROOT)/Lib -L$(ISHIKO_CPP_ERRORS_ROOT)/Lib -L$(BOOST_ROOT)/lib -L$(ISHIKO_CPP_PROCESS_ROOT)/Lib -L$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/Lib -lIshikoTerminal -lIshikoTestFrameworkCore -lIshikoProcess -lIshikoTypes -lIshikoErrors -lboost_filesystem -lboost_system -pthread
 
 $(_builddir)IshikoTerminalTests_main.o: ../../Source/main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ISHIKO_CPP_TERMINAL_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_PROCESS_ROOT)/Include -I$(BOOST_ROOT)/include -I$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/Include -std=c++11 ../../Source/main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ISHIKO_CPP_TYPES_ROOT)/Include -I$(ISHIKO_CPP_TERMINAL_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(BOOST_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/Include -I$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/Include -std=c++11 ../../Source/main.cpp
 
 $(_builddir)IshikoTerminalTests_TerminalOutputTests.o: ../../Source/TerminalOutputTests.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ISHIKO_CPP_TERMINAL_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_PROCESS_ROOT)/Include -I$(BOOST_ROOT)/include -I$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/Include -std=c++11 ../../Source/TerminalOutputTests.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ISHIKO_CPP_TYPES_ROOT)/Include -I$(ISHIKO_CPP_TERMINAL_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(BOOST_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/Include -I$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/Include -std=c++11 ../../Source/TerminalOutputTests.cpp
 
 clean:
 	rm -f $(_builddir)*.o
