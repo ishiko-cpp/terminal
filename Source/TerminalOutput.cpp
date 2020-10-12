@@ -1,23 +1,70 @@
-/*
+﻿/*
     Copyright (c) 2020 Xavier Leclercq
-
-    Permission is hereby granted, free of charge, to any person obtaining a
-    copy of this software and associated documentation files (the "Software"),
-    to deal in the Software without restriction, including without limitation
-    the rights to use, copy, modify, merge, publish, distribute, sublicense,
-    and/or sell copies of the Software, and to permit persons to whom the
-    Software is furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in
-    all copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OROTHER DEALINGS
-    IN THE SOFTWARE.
+    Released under the MIT License
+    See https://github.com/Ishiko-cpp/Terminal/blob/master/LICENSE.txt
 */
 
 #include "TerminalOutput.h"
+#ifdef WIN32
+#include <Windows.h>
+#include <io.h>
+#endif
+#include <iostream>
+
+namespace Ishiko
+{
+namespace Terminal
+{
+
+namespace
+{
+
+bool TerminalSupportsColor(FILE* file)
+{
+#ifdef WIN32
+    HANDLE outputHandle = (HANDLE)_get_osfhandle(_fileno(file));
+    DWORD mode;
+    GetConsoleMode(outputHandle, &mode);
+    return (mode & 0x4);
+#else
+    return true;
+#endif
+}
+
+}
+
+TerminalOutput::TerminalOutput(FILE* file)
+    : m_file(file)
+{
+}
+
+void TerminalOutput::write(const char* text)
+{
+    fprintf(m_file, text);
+}
+
+void TerminalOutput::write(const std::string& text)
+{
+    fprintf(m_file, text.c_str());
+}
+
+void TerminalOutput::write(const char* text, const Color& color)
+{
+    if (TerminalSupportsColor(m_file))
+    {
+        fprintf(m_file, "\x1B[38;2;%s;%s;%sm%s\x1B[0m", std::to_string(color.red).c_str(),
+            std::to_string(color.green).c_str(), std::to_string(color.blue).c_str(), text);
+    }
+    else
+    {
+        fprintf(m_file, text);
+    }
+}
+
+void TerminalOutput::write(const std::string& text, const Color& color)
+{
+    write(text.c_str(), color);
+}
+
+}
+}
