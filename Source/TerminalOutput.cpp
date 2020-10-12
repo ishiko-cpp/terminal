@@ -7,6 +7,7 @@
 #include "TerminalOutput.h"
 #ifdef WIN32
 #include <Windows.h>
+#include <io.h>
 #endif
 #include <iostream>
 
@@ -18,10 +19,10 @@ namespace Terminal
 namespace
 {
 
-bool TerminalSupportsColor()
+bool TerminalSupportsColor(FILE* file)
 {
 #ifdef WIN32
-    HANDLE outputHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+    HANDLE outputHandle = (HANDLE)_get_osfhandle(_fileno(file));
     DWORD mode;
     GetConsoleMode(outputHandle, &mode);
     return (mode & 0x4);
@@ -49,7 +50,7 @@ void TerminalOutput::write(const std::string& text)
 
 void TerminalOutput::write(const char* text, const Color& color)
 {
-    if (TerminalSupportsColor())
+    if (TerminalSupportsColor(m_file))
     {
         fprintf(m_file, "\x1B[38;2;%s;%s;%sm%s\x1B[0m", std::to_string(color.red).c_str(),
             std::to_string(color.green).c_str(), std::to_string(color.blue).c_str(), text);
