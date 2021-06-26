@@ -39,6 +39,6 @@ library IshikoTerminal : IshikoTypes
 
     sources
     {
-        ../../Source/TerminalOutput.cpp
+        ../../src/TerminalOutput.cpp
     }
 }

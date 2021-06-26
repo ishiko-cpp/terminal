@@ -75,8 +75,8 @@ all: ../bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),IshikoTerminal
 	$(AR) rc $@ $(_builddir)IshikoTerminal_TerminalOutput.o
 	$(RANLIB) $@
 
-$(_builddir)IshikoTerminal_TerminalOutput.o: ../../Source/TerminalOutput.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_TYPES_ROOT)/include -I../../include/Ishiko/Terminal -std=c++11 ../../Source/TerminalOutput.cpp
+$(_builddir)IshikoTerminal_TerminalOutput.o: ../../src/TerminalOutput.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_TYPES_ROOT)/include -I../../include/Ishiko/Terminal -std=c++11 ../../src/TerminalOutput.cpp
 
 clean:
 	rm -f $(_builddir)*.o
