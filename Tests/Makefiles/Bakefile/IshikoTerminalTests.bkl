@@ -16,7 +16,7 @@ program IshikoTerminalTests : IshikoTerminal, IshikoTestsCore
     if ($(toolset) == gnu)
     {
         cxx-compiler-options = "-std=c++11";
-        libs += IshikoTerminal IshikoTestsCore IshikoProcess IshikoTypes IshikoErrors boost_filesystem boost_system;
+        libs += IshikoTerminal IshikoTestsCore IshikoDiff IshikoProcess IshikoTypes IshikoErrors boost_filesystem boost_system;
     }
 
     headers
