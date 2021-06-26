@@ -1,6 +1,6 @@
 import ../../../Include/Ishiko/Terminal.bkl;
 ishikopath = envvar("ISHIKO_CPP");
-import $(ishikopath)/TestFramework/Include/Ishiko/TestFramework/TestFrameworkCore.bkl;
+import $(ishikopath)/tests/include/Ishiko/Tests/Core.bkl;
 
 toolsets = gnu vs2017 vs2015 vs2013;
 
@@ -9,14 +9,14 @@ vs2017.solutionfile = ../VC15/IshikoTerminalTests.sln;
 vs2015.solutionfile = ../VC14/IshikoTerminalTests.sln;
 vs2013.solutionfile = ../VC12/IshikoTerminalTests.sln;
 
-program IshikoTerminalTests : IshikoTerminal, IshikoTestFrameworkCore
+program IshikoTerminalTests : IshikoTerminal, IshikoTestsCore
 {
     archs = x86 x86_64;
 
     if ($(toolset) == gnu)
     {
         cxx-compiler-options = "-std=c++11";
-        libs += IshikoTerminal IshikoTestFrameworkCore IshikoProcess IshikoTypes IshikoErrors boost_filesystem boost_system;
+        libs += IshikoTerminal IshikoTestsCore IshikoProcess IshikoTypes IshikoErrors boost_filesystem boost_system;
     }
 
     headers
