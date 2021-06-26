@@ -3,10 +3,10 @@ import $(ishikopath)/types/include/Ishiko/Types.bkl;
 
 toolsets = gnu vs2017 vs2015 vs2013;
 
-gnu.makefile = ../GNUmakefile/GNUmakefile;
-vs2017.solutionfile = ../VC15/IshikoTerminal.sln;
-vs2015.solutionfile = ../VC14/IshikoTerminal.sln;
-vs2013.solutionfile = ../VC12/IshikoTerminal.sln;
+gnu.makefile = ../gnumake/GNUmakefile;
+vs2017.solutionfile = ../vc15/IshikoTerminal.sln;
+vs2015.solutionfile = ../vc14/IshikoTerminal.sln;
+vs2013.solutionfile = ../vc12/IshikoTerminal.sln;
 
 library IshikoTerminal : IshikoTypes
 {
