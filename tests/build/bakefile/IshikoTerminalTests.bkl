@@ -21,12 +21,12 @@ program IshikoTerminalTests : IshikoTerminal, IshikoTestsCore
 
     headers
     {
-        ../../Source/TerminalOutputTests.h
+        ../../src/TerminalOutputTests.h
     }
 
     sources
     {
-        ../../Source/main.cpp
-        ../../Source/TerminalOutputTests.cpp
+        ../../src/main.cpp
+        ../../src/TerminalOutputTests.cpp
     }
 }
