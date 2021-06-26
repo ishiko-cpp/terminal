@@ -9,7 +9,7 @@ setting ISHIKO_CPP_TERMINAL_ROOT
 
 template IshikoTerminal : IshikoTypes
 {
-    includedirs += $(ISHIKO_CPP_TERMINAL_ROOT)/Include;
+    includedirs += $(ISHIKO_CPP_TERMINAL_ROOT)/include;
 
     if ($(toolset) == gnu)
     {
