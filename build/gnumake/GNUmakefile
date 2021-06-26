@@ -69,9 +69,9 @@ ISHIKO_CPP_TYPES_ROOT ?= $(ISHIKO_CPP)/types
 
 # ------------
 
-all: ../bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),IshikoTerminal-d,IshikoTerminal).a
+all: ../bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),IshikoTerminal-d,IshikoTerminal).a
 
-../bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),IshikoTerminal-d,IshikoTerminal).a: $(_builddir)IshikoTerminal_TerminalOutput.o
+../bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),IshikoTerminal-d,IshikoTerminal).a: $(_builddir)IshikoTerminal_TerminalOutput.o
 	$(AR) rc $@ $(_builddir)IshikoTerminal_TerminalOutput.o
 	$(RANLIB) $@
 
@@ -81,7 +81,7 @@ $(_builddir)IshikoTerminal_TerminalOutput.o: ../../Source/TerminalOutput.cpp
 clean:
 	rm -f $(_builddir)*.o
 	rm -f $(_builddir)*.d
-	rm -f ../bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),IshikoTerminal-d,IshikoTerminal).a
+	rm -f ../bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),IshikoTerminal-d,IshikoTerminal).a
 
 .PHONY: all clean
 
