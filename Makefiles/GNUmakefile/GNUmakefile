@@ -65,7 +65,7 @@ endif
 # 
 
 # Path to the Ishiko Types installation
-ISHIKO_CPP_TYPES_ROOT ?= $(ISHIKO_CPP)/Types
+ISHIKO_CPP_TYPES_ROOT ?= $(ISHIKO_CPP)/types
 
 # ------------
 
@@ -76,7 +76,7 @@ all: ../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),IshikoTerminal
 	$(RANLIB) $@
 
 $(_builddir)IshikoTerminal_TerminalOutput.o: ../../Source/TerminalOutput.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_TYPES_ROOT)/Include -I../../Include/Ishiko/Terminal -std=c++11 ../../Source/TerminalOutput.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_TYPES_ROOT)/include -I../../Include/Ishiko/Terminal -std=c++11 ../../Source/TerminalOutput.cpp
 
 clean:
 	rm -f $(_builddir)*.o

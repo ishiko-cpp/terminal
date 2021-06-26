@@ -1,10 +1,10 @@
 ishikopath = envvar("ISHIKO_CPP");
-import $(ishikopath)/Types/Include/Ishiko/Types.bkl;
+import $(ishikopath)/types/include/Ishiko/Types.bkl;
 
 setting ISHIKO_CPP_TERMINAL_ROOT
 {
     help = "Path to the Ishiko Terminal installation";
-    default = '$(ISHIKO_CPP)/Terminal';
+    default = '$(ISHIKO_CPP)/terminal';
 }
 
 template IshikoTerminal : IshikoTypes
