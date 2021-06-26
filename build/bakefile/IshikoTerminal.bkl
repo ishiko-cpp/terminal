@@ -17,12 +17,12 @@ library IshikoTerminal : IshikoTypes
     if ($(toolset) == gnu)
     {
         cxx-compiler-options = "-std=c++11";
-        outputdir = ../../Lib;
+        outputdir = ../../lib;
     }
 
     if ($(toolset) != gnu)
     {
-        outputdir = ../../Lib/$(arch);
+        outputdir = ../../lib/$(arch);
     }
 
     if ($(config) == Debug)
@@ -39,6 +39,6 @@ library IshikoTerminal : IshikoTypes
 
     sources
     {
-        ../../Source/TerminalOutput.cpp
+        ../../src/TerminalOutput.cpp
     }
 }

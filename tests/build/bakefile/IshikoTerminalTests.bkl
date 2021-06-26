@@ -4,10 +4,10 @@ import $(ishikopath)/tests/include/Ishiko/Tests/Core.bkl;
 
 toolsets = gnu vs2017 vs2015 vs2013;
 
-gnu.makefile = ../GNUmakefile/GNUmakefile;
-vs2017.solutionfile = ../VC15/IshikoTerminalTests.sln;
-vs2015.solutionfile = ../VC14/IshikoTerminalTests.sln;
-vs2013.solutionfile = ../VC12/IshikoTerminalTests.sln;
+gnu.makefile = ../gnumake/GNUmakefile;
+vs2017.solutionfile = ../vc15/IshikoTerminalTests.sln;
+vs2015.solutionfile = ../vc14/IshikoTerminalTests.sln;
+vs2013.solutionfile = ../vc12/IshikoTerminalTests.sln;
 
 program IshikoTerminalTests : IshikoTerminal, IshikoTestsCore
 {
@@ -21,12 +21,12 @@ program IshikoTerminalTests : IshikoTerminal, IshikoTestsCore
 
     headers
     {
-        ../../Source/TerminalOutputTests.h
+        ../../src/TerminalOutputTests.h
     }
 
     sources
     {
-        ../../Source/main.cpp
-        ../../Source/TerminalOutputTests.cpp
+        ../../src/main.cpp
+        ../../src/TerminalOutputTests.cpp
     }
 }

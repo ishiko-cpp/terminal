@@ -1,10 +1,10 @@
-# Ishiko/C++ - Terminal
+# Ishiko/C++ Terminal
 
 Utilities to work with terminal input and output.
 
 # Contents
 
-- Include: Directory containing the public headers for the project.
+- include: Directory containing the public headers for the project.
 - Lib: Directory where the build process puts the compiled libraries.
 - Makefiles: The makefiles used to build the project
 - Source: The source code for the project.
@@ -12,7 +12,7 @@ Utilities to work with terminal input and output.
 
 # Project Status
 
-[![Ishiko-cpp](https://circleci.com/gh/Ishiko-cpp/Terminal.svg?style=shield)](https://circleci.com/gh/Ishiko-cpp/Terminal)
+[![ishiko-cpp](https://circleci.com/gh/ishiko-cpp/terminal.svg?style=shield)](https://circleci.com/gh/ishiko-cpp/terminal)
 
 This project is intended for use by its author only.
 
@@ -26,7 +26,7 @@ None.
 
 # License
 
-Copyright (c) 2020 Xavier Leclercq
+Copyright (c) 2020-2021 Xavier Leclercq
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),

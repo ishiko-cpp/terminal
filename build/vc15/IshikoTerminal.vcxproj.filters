@@ -28,7 +28,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\TerminalOutput.cpp">
+    <ClCompile Include="..\..\src\TerminalOutput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
