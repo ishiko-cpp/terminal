@@ -1,11 +1,13 @@
 /*
-    Copyright (c) 2020 Xavier Leclercq
+    Copyright (c) 2020-2021 Xavier Leclercq
     Released under the MIT License
-    See https://github.com/Ishiko-cpp/Terminal/blob/master/LICENSE.txt
+    See https://github.com/ishiko-cpp/terminal/blob/main/LICENSE.txt
 */
 
 #ifndef _ISHIKO_TERMINAL_H_
 #define _ISHIKO_TERMINAL_H_
+
+#include "Terminal/TerminalOutput.h"
 
 #include "Terminal/linkoptions.h"
 
