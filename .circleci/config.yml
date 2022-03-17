@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: ishiko/gcc-boost:11.1.0-1.76.0
+      - image: ishiko/gcc-ishiko-cpp-build-prerequisites:0.2.0
     steps:
       - run: 
           name: "Set ISHIKO_CPP environment variable and create workspace directory"
@@ -45,3 +45,18 @@ jobs:
       - run:
           name: Run the tests
           command: cd /projects/ishiko/cpp/terminal/tests/build/gnumake && ./IshikoTerminalTests
+workflows:
+  version: 2
+  continuous_build:
+    jobs:
+      - build
+  weekly_build:
+    jobs:
+      - build
+    triggers:
+      - schedule:
+          cron: "0 8 * * 0"
+          filters:
+            branches:
+              only:
+                 - main
