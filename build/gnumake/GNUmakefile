@@ -37,6 +37,7 @@ endif
 # Additionally, this makefile is customizable with the following
 # settings:
 #
+#      ISHIKO_CPP_BOOST_ROOT  Path to the Boost installation
 #      ISHIKO_CPP_TYPES_ROOT  Path to the Ishiko Types installation
 
 # Use "make RANLIB=''" for platforms without ranlib.
@@ -64,6 +65,8 @@ endif
 # Configurable settings:
 # 
 
+# Path to the Boost installation
+ISHIKO_CPP_BOOST_ROOT ?= $(ISHIKO_CPP_THIRD_PARTY_BOOST)
 # Path to the Ishiko Types installation
 ISHIKO_CPP_TYPES_ROOT ?= $(ISHIKO_CPP)/types
 
@@ -76,7 +79,7 @@ all: ../bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),IshikoTerminal
 	$(RANLIB) $@
 
 $(_builddir)IshikoTerminal_TerminalOutput.o: ../../src/TerminalOutput.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_TYPES_ROOT)/include -I../../include/Ishiko/Terminal -std=c++11 ../../src/TerminalOutput.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_TYPES_ROOT)/include -I../../include/Ishiko/Terminal -std=c++11 ../../src/TerminalOutput.cpp
 
 clean:
 	rm -f $(_builddir)*.o
