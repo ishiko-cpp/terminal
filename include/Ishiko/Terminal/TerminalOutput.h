@@ -1,13 +1,13 @@
 /*
-    Copyright (c) 2020 Xavier Leclercq
+    Copyright (c) 2020-2022 Xavier Leclercq
     Released under the MIT License
     See https://github.com/ishiko-cpp/terminal/blob/main/LICENSE.txt
 */
 
-#ifndef _ISHIKO_TERMINAL_TERMINALOUTPUT_H_
-#define _ISHIKO_TERMINAL_TERMINALOUTPUT_H_
+#ifndef _ISHIKO_CPP_TERMINAL_TERMINALOUTPUT_H_
+#define _ISHIKO_CPP_TERMINAL_TERMINALOUTPUT_H_
 
-#include <Ishiko/Types/Color.h>
+#include <Ishiko/Types.hpp>
 #include <string>
 #include <cstdio>
 
