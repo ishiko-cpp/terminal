@@ -5,7 +5,7 @@
 */
 
 #include "TerminalOutputTests.h"
-#include <Ishiko/Tests/Core.hpp>
+#include <Ishiko/TestFramework/Core.hpp>
 
 using namespace Ishiko;
 
