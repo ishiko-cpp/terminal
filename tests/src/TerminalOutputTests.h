@@ -7,7 +7,7 @@
 #ifndef _ISHIKO_CPP_TERMINAL_TESTS_TERMINALOUTPUTTESTS_H_
 #define _ISHIKO_CPP_TERMINAL_TESTS_TERMINALOUTPUTTESTS_H_
 
-#include <Ishiko/Tests/Core.hpp>
+#include <Ishiko/TestFramework/Core.hpp>
 
 class TerminalOutputTests : public Ishiko::TestSequence
 {
