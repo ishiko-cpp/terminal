@@ -36,12 +36,12 @@ void TerminalOutputTests::WriteTest1(FileComparisonTest& test)
     test.setOutputFilePath(outputPath);
     test.setReferenceFilePath(test.context().getReferenceDataDirectory() / "TerminalOutputTests_WriteTest1.txt");
 
-    Process::CurrentProcess::RedirectStandardOutputToFile(outputPath.string());
+    CurrentProcess::RedirectStandardOutputToFile(outputPath.string());
 
     TerminalOutput output(stdout);
     output.write("text");
 
-    Process::CurrentProcess::RedirectStandardOutputToTerminal();
+    CurrentProcess::RedirectStandardOutputToTerminal();
 
     ISHIKO_TEST_PASS();
 }
@@ -53,13 +53,13 @@ void TerminalOutputTests::WriteTest2(FileComparisonTest& test)
     test.setOutputFilePath(outputPath);
     test.setReferenceFilePath(test.context().getReferenceDataDirectory() / "TerminalOutputTests_WriteTest2.txt");
 
-    Process::CurrentProcess::RedirectStandardOutputToFile(outputPath.string());
+    CurrentProcess::RedirectStandardOutputToFile(outputPath.string());
 
     TerminalOutput output(stdout);
     std::string text = "text";
     output.write(text);
 
-    Process::CurrentProcess::RedirectStandardOutputToTerminal();
+    CurrentProcess::RedirectStandardOutputToTerminal();
 
     ISHIKO_TEST_PASS();
 }
@@ -71,12 +71,12 @@ void TerminalOutputTests::WriteTest3(FileComparisonTest& test)
     test.setOutputFilePath(outputPath);
     test.setReferenceFilePath(test.context().getReferenceDataDirectory() / "TerminalOutputTests_WriteTest3.txt");
 
-    Process::CurrentProcess::RedirectStandardOutputToFile(outputPath.string());
+    CurrentProcess::RedirectStandardOutputToFile(outputPath.string());
 
     TerminalOutput output(stdout);
     output.write("text", Ishiko::Color::eRed);
 
-    Process::CurrentProcess::RedirectStandardOutputToTerminal();
+    CurrentProcess::RedirectStandardOutputToTerminal();
 
     ISHIKO_TEST_PASS();
 }
@@ -88,13 +88,13 @@ void TerminalOutputTests::WriteTest4(FileComparisonTest& test)
     test.setOutputFilePath(outputPath);
     test.setReferenceFilePath(test.context().getReferenceDataDirectory() / "TerminalOutputTests_WriteTest4.txt");
 
-    Process::CurrentProcess::RedirectStandardOutputToFile(outputPath.string());
+    CurrentProcess::RedirectStandardOutputToFile(outputPath.string());
 
     TerminalOutput output(stdout);
     std::string text = "text";
     output.write(text, Ishiko::Color::eRed);
 
-    Process::CurrentProcess::RedirectStandardOutputToTerminal();
+    CurrentProcess::RedirectStandardOutputToTerminal();
 
     ISHIKO_TEST_PASS();
 }
