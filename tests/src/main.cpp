@@ -13,8 +13,8 @@ int main(int argc, char* argv[])
 {
     TestHarness theTestHarness("IshikoTerminal");
 
-    theTestHarness.context().setTestOutputDirectory("../../output");
-    theTestHarness.context().setReferenceDataDirectory("../../reference");
+    theTestHarness.context().setOutputDirectory("../../output");
+    theTestHarness.context().setReferenceDirectory("../../reference");
 
     TestSequence& theTests = theTestHarness.tests();
     theTests.append<TerminalOutputTests>();

@@ -6,8 +6,7 @@
 
 #include "TerminalOutputTests.h"
 #include "Ishiko/Terminal/TerminalOutput.h"
-#include <Ishiko/Process/CurrentProcess.h>
-#include <boost/filesystem/operations.hpp>
+#include <Ishiko/Process.hpp>
 
 using namespace Ishiko;
 using namespace Ishiko::Terminal;
@@ -16,10 +15,10 @@ TerminalOutputTests::TerminalOutputTests(const TestNumber& number, const TestCon
     : TestSequence(number, "TerminalOutput tests", context)
 {
     append<HeapAllocationErrorsTest>("Construction test 1", ConstructionTest1);
-    append<FileComparisonTest>("write test 1", WriteTest1);
-    append<FileComparisonTest>("write test 2", WriteTest2);
-    append<FileComparisonTest>("write test 3", WriteTest3);
-    append<FileComparisonTest>("write test 4", WriteTest4);
+    append<HeapAllocationErrorsTest>("write test 1", WriteTest1);
+    append<HeapAllocationErrorsTest>("write test 2", WriteTest2);
+    append<HeapAllocationErrorsTest>("write test 3", WriteTest3);
+    append<HeapAllocationErrorsTest>("write test 4", WriteTest4);
 }
 
 void TerminalOutputTests::ConstructionTest1(Test& test)
@@ -29,31 +28,26 @@ void TerminalOutputTests::ConstructionTest1(Test& test)
     ISHIKO_TEST_PASS();
 }
 
-void TerminalOutputTests::WriteTest1(FileComparisonTest& test)
+void TerminalOutputTests::WriteTest1(Test& test)
 {
-    boost::filesystem::path outputPath(test.context().getTestOutputDirectory() / "TerminalOutputTests_WriteTest1.txt");
-    boost::filesystem::remove(outputPath);
-    test.setOutputFilePath(outputPath);
-    test.setReferenceFilePath(test.context().getReferenceDataDirectory() / "TerminalOutputTests_WriteTest1.txt");
-
-    CurrentProcess::RedirectStandardOutputToFile(outputPath.string());
+    const char* basename{"TerminalOutputTests_WriteTest1.txt"};
+    
+    CurrentProcess::RedirectStandardOutputToFile(test.context().getOutputPath(basename).string());
 
     TerminalOutput output(stdout);
     output.write("text");
 
     CurrentProcess::RedirectStandardOutputToTerminal();
 
+    ISHIKO_TEST_FAIL_IF_OUTPUT_AND_REFERENCE_FILES_NEQ(basename);
     ISHIKO_TEST_PASS();
 }
 
-void TerminalOutputTests::WriteTest2(FileComparisonTest& test)
+void TerminalOutputTests::WriteTest2(Test& test)
 {
-    boost::filesystem::path outputPath(test.context().getTestOutputDirectory() / "TerminalOutputTests_WriteTest2.txt");
-    boost::filesystem::remove(outputPath);
-    test.setOutputFilePath(outputPath);
-    test.setReferenceFilePath(test.context().getReferenceDataDirectory() / "TerminalOutputTests_WriteTest2.txt");
-
-    CurrentProcess::RedirectStandardOutputToFile(outputPath.string());
+    const char* basename{"TerminalOutputTests_WriteTest2.txt"};
+    
+    CurrentProcess::RedirectStandardOutputToFile(test.context().getOutputPath(basename).string());
 
     TerminalOutput output(stdout);
     std::string text = "text";
@@ -61,40 +55,37 @@ void TerminalOutputTests::WriteTest2(FileComparisonTest& test)
 
     CurrentProcess::RedirectStandardOutputToTerminal();
 
+    ISHIKO_TEST_FAIL_IF_OUTPUT_AND_REFERENCE_FILES_NEQ(basename);
     ISHIKO_TEST_PASS();
 }
 
-void TerminalOutputTests::WriteTest3(FileComparisonTest& test)
+void TerminalOutputTests::WriteTest3(Test& test)
 {
-    boost::filesystem::path outputPath(test.context().getTestOutputDirectory() / "TerminalOutputTests_WriteTest3.txt");
-    boost::filesystem::remove(outputPath);
-    test.setOutputFilePath(outputPath);
-    test.setReferenceFilePath(test.context().getReferenceDataDirectory() / "TerminalOutputTests_WriteTest3.txt");
+    const char* basename{"TerminalOutputTests_WriteTest3.txt"};
 
-    CurrentProcess::RedirectStandardOutputToFile(outputPath.string());
+    CurrentProcess::RedirectStandardOutputToFile(test.context().getOutputPath(basename).string());
 
     TerminalOutput output(stdout);
     output.write("text", Ishiko::Color::eRed);
 
     CurrentProcess::RedirectStandardOutputToTerminal();
 
+    ISHIKO_TEST_FAIL_IF_OUTPUT_AND_REFERENCE_FILES_NEQ(basename);
     ISHIKO_TEST_PASS();
 }
 
-void TerminalOutputTests::WriteTest4(FileComparisonTest& test)
+void TerminalOutputTests::WriteTest4(Test& test)
 {
-    boost::filesystem::path outputPath(test.context().getTestOutputDirectory() / "TerminalOutputTests_WriteTest4.txt");
-    boost::filesystem::remove(outputPath);
-    test.setOutputFilePath(outputPath);
-    test.setReferenceFilePath(test.context().getReferenceDataDirectory() / "TerminalOutputTests_WriteTest4.txt");
-
-    CurrentProcess::RedirectStandardOutputToFile(outputPath.string());
+    const char* basename{"TerminalOutputTests_WriteTest4.txt"};
+    
+    CurrentProcess::RedirectStandardOutputToFile(test.context().getOutputPath(basename).string());
 
     TerminalOutput output(stdout);
     std::string text = "text";
-    output.write(text, Ishiko::Color::eRed);
+    output.write(text, Color::eRed);
 
     CurrentProcess::RedirectStandardOutputToTerminal();
 
+    ISHIKO_TEST_FAIL_IF_OUTPUT_AND_REFERENCE_FILES_NEQ(basename);
     ISHIKO_TEST_PASS();
 }
