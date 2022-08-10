@@ -4,8 +4,8 @@
     See https://github.com/ishiko-cpp/terminal/blob/main/LICENSE.txt
 */
 
-#ifndef _ISHIKO_CPP_TERMINAL_TESTS_TERMINALOUTPUTTESTS_H_
-#define _ISHIKO_CPP_TERMINAL_TESTS_TERMINALOUTPUTTESTS_H_
+#ifndef GUARD_ISHIKO_CPP_TERMINAL_TESTS_TERMINALOUTPUTTESTS_H
+#define GUARD_ISHIKO_CPP_TERMINAL_TESTS_TERMINALOUTPUTTESTS_H
 
 #include <Ishiko/TestFramework/Core.hpp>
 
@@ -16,10 +16,10 @@ public:
 
 private:
     static void ConstructionTest1(Ishiko::Test& test);
-    static void WriteTest1(Ishiko::FileComparisonTest& test);
-    static void WriteTest2(Ishiko::FileComparisonTest& test);
-    static void WriteTest3(Ishiko::FileComparisonTest& test);
-    static void WriteTest4(Ishiko::FileComparisonTest& test);
+    static void WriteTest1(Ishiko::Test& test);
+    static void WriteTest2(Ishiko::Test& test);
+    static void WriteTest3(Ishiko::Test& test);
+    static void WriteTest4(Ishiko::Test& test);
 };
 
 #endif
