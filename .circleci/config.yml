@@ -39,7 +39,7 @@ jobs:
       - run:
           name: "Install test dependency: Ishiko/C++ FileSystem"
           command: cd /projects/ishiko/cpp && git clone https://github.com/ishiko-cpp/filesystem.git && cd filesystem/build/gnumake && make
-     - run:
+      - run:
           name: "Install test dependency: Ishiko/C++ XML"
           command: cd /projects/ishiko/cpp && git clone https://github.com/ishiko-cpp/xml.git && cd xml/build/gnumake && make
       - run:
