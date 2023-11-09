@@ -38,7 +38,7 @@ endif
 # settings:
 #
 #      ISHIKO_CPP_BOOST_ROOT  Path to the Boost installation
-#      ISHIKO_CPP_TYPES_ROOT  Path to the Ishiko Types installation
+#      ISHIKO_CPP_TYPES_ROOT  Path to the Ishiko/C++ Types installation
 
 # Use "make RANLIB=''" for platforms without ranlib.
 RANLIB ?= ranlib
@@ -67,8 +67,8 @@ endif
 
 # Path to the Boost installation
 ISHIKO_CPP_BOOST_ROOT ?= $(BOOST_ROOT)
-# Path to the Ishiko Types installation
-ISHIKO_CPP_TYPES_ROOT ?= $(ISHIKO_CPP)/types
+# Path to the Ishiko/C++ Types installation
+ISHIKO_CPP_TYPES_ROOT ?= $(ISHIKO_CPP_ROOT)/types
 
 # ------------
 
