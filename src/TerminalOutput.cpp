@@ -40,12 +40,12 @@ void TerminalOutput::write(const std::string& text)
     fprintf(m_file, text.c_str());
 }
 
-void TerminalOutput::write(const char* text, const Color& color)
+void TerminalOutput::write(const char* text, const RGBAColor& color)
 {
     if (TerminalSupportsColor(m_file))
     {
-        fprintf(m_file, "\x1B[38;2;%s;%s;%sm%s\x1B[0m", std::to_string(color.red).c_str(),
-            std::to_string(color.green).c_str(), std::to_string(color.blue).c_str(), text);
+        fprintf(m_file, "\x1B[38;2;%s;%s;%sm%s\x1B[0m", std::to_string(color.red_component).c_str(),
+            std::to_string(color.green_component).c_str(), std::to_string(color.blue_component).c_str(), text);
     }
     else
     {
@@ -53,7 +53,7 @@ void TerminalOutput::write(const char* text, const Color& color)
     }
 }
 
-void TerminalOutput::write(const std::string& text, const Color& color)
+void TerminalOutput::write(const std::string& text, const RGBAColor& color)
 {
     write(text.c_str(), color);
 }
