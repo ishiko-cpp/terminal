@@ -4,7 +4,7 @@
     See https://github.com/ishiko-cpp/terminal/blob/main/LICENSE.txt
 */
 
-#include "TerminalOutput.h"
+#include "TerminalOutput.hpp"
 #ifdef WIN32
 #include <Windows.h>
 #include <io.h>

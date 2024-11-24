@@ -7,8 +7,7 @@
 #ifndef _ISHIKO_TERMINAL_H_
 #define _ISHIKO_TERMINAL_H_
 
-#include "Terminal/TerminalOutput.h"
-
-#include "Terminal/linkoptions.h"
+#include "Terminal/linkoptions.hpp"
+#include "Terminal/TerminalOutput.hpp"
 
 #endif
