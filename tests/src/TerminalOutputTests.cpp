@@ -1,15 +1,11 @@
-/*
-    Copyright (c) 2020-2022 Xavier Leclercq
-    Released under the MIT License
-    See https://github.com/ishiko-cpp/terminal/blob/master/LICENSE.txt
-*/
+// SPDX-FileCopyrightText: 2005-2024 Xavier Leclercq
+// SPDX-License-Identifier: BSL-1.0
 
 #include "TerminalOutputTests.h"
 #include "Ishiko/Terminal/TerminalOutput.hpp"
 #include <Ishiko/Process.hpp>
 
 using namespace Ishiko;
-using namespace Ishiko::Terminal;
 
 TerminalOutputTests::TerminalOutputTests(const TestNumber& number, const TestContext& context)
     : TestSequence(number, "TerminalOutput tests", context)

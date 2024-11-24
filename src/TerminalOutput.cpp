@@ -1,8 +1,5 @@
-﻿/*
-    Copyright (c) 2020 Xavier Leclercq
-    Released under the MIT License
-    See https://github.com/ishiko-cpp/terminal/blob/main/LICENSE.txt
-*/
+﻿// SPDX-FileCopyrightText: 2005-2024 Xavier Leclercq
+// SPDX-License-Identifier: BSL-1.0
 
 #include "TerminalOutput.hpp"
 #ifdef WIN32
@@ -11,26 +8,21 @@
 #endif
 #include <iostream>
 
-namespace Ishiko
-{
-namespace Terminal
-{
+using namespace Ishiko;
 
 namespace
 {
-
-bool TerminalSupportsColor(FILE* file)
-{
+    bool TerminalSupportsColor(FILE* file)
+    {
 #ifdef WIN32
-    HANDLE outputHandle = (HANDLE)_get_osfhandle(_fileno(file));
-    DWORD mode;
-    GetConsoleMode(outputHandle, &mode);
-    return (mode & 0x4);
+        HANDLE outputHandle = (HANDLE)_get_osfhandle(_fileno(file));
+        DWORD mode;
+        GetConsoleMode(outputHandle, &mode);
+        return (mode & 0x4);
 #else
-    return true;
+        return true;
 #endif
-}
-
+    }
 }
 
 TerminalOutput::TerminalOutput(FILE* file)
@@ -64,7 +56,4 @@ void TerminalOutput::write(const char* text, const Color& color)
 void TerminalOutput::write(const std::string& text, const Color& color)
 {
     write(text.c_str(), color);
-}
-
-}
 }

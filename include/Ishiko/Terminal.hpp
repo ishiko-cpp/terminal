@@ -1,11 +1,8 @@
-/*
-    Copyright (c) 2020-2021 Xavier Leclercq
-    Released under the MIT License
-    See https://github.com/ishiko-cpp/terminal/blob/main/LICENSE.txt
-*/
+// SPDX-FileCopyrightText: 2005-2024 Xavier Leclercq
+// SPDX-License-Identifier: BSL-1.0
 
-#ifndef _ISHIKO_TERMINAL_H_
-#define _ISHIKO_TERMINAL_H_
+#ifndef GUARD_ISHIKO_CPP_TERMINAL_HPP
+#define GUARD_ISHIKO_CPP_TERMINAL_HPP
 
 #include "Terminal/linkoptions.hpp"
 #include "Terminal/TerminalOutput.hpp"
