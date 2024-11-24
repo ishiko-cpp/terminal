@@ -17,8 +17,8 @@ namespace Ishiko
 
         void write(const char* text);
         void write(const std::string& text);
-        void write(const char* text, const Color& color);
-        void write(const std::string& text, const Color& color);
+        void write(const char* text, const RGBAColor& color);
+        void write(const std::string& text, const RGBAColor& color);
 
     private:
         FILE* m_file;

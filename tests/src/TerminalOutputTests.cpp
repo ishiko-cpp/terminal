@@ -62,7 +62,7 @@ void TerminalOutputTests::WriteTest3(Test& test)
     CurrentProcess::RedirectStandardOutputToFile(test.context().getOutputPath(basename).string());
 
     TerminalOutput output(stdout);
-    output.write("text", Ishiko::Color::eRed);
+    output.write("text", ColorName::red);
 
     CurrentProcess::RedirectStandardOutputToTerminal();
 
@@ -78,7 +78,7 @@ void TerminalOutputTests::WriteTest4(Test& test)
 
     TerminalOutput output(stdout);
     std::string text = "text";
-    output.write(text, Color::eRed);
+    output.write(text, ColorName::red);
 
     CurrentProcess::RedirectStandardOutputToTerminal();
 
