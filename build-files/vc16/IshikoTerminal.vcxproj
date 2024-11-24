@@ -153,9 +153,9 @@
     <ClCompile Include="..\..\src\TerminalOutput.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\Ishiko\Terminal.h" />
-    <ClInclude Include="..\..\include\Ishiko\Terminal\TerminalOutput.h" />
-    <ClInclude Include="..\..\include\Ishiko\Terminal\linkoptions.h" />
+    <ClInclude Include="..\..\include\Ishiko\Terminal.hpp" />
+    <ClInclude Include="..\..\include\Ishiko\Terminal\TerminalOutput.hpp" />
+    <ClInclude Include="..\..\include\Ishiko\Terminal\linkoptions.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
