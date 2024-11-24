@@ -33,9 +33,9 @@ library IshikoTerminal : IshikoTypes
 
     headers
     {
-        ../../include/Ishiko/Terminal.h
-        ../../include/Ishiko/Terminal/TerminalOutput.h
-        ../../include/Ishiko/Terminal/linkoptions.h
+        ../../include/Ishiko/Terminal.hpp
+        ../../include/Ishiko/Terminal/TerminalOutput.hpp
+        ../../include/Ishiko/Terminal/linkoptions.hpp
     }
 
     sources

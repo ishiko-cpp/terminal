@@ -17,13 +17,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\Ishiko\Terminal.h">
+    <ClInclude Include="..\..\include\Ishiko\Terminal.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Ishiko\Terminal\TerminalOutput.h">
+    <ClInclude Include="..\..\include\Ishiko\Terminal\TerminalOutput.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Ishiko\Terminal\linkoptions.h">
+    <ClInclude Include="..\..\include\Ishiko\Terminal\linkoptions.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
