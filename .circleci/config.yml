@@ -10,6 +10,9 @@ jobs:
       - run:
           name: "Install build dependency: Ishiko/C++ Types"
           command: cd /workspace/projects/ishiko/cpp && git clone https://github.com/ishiko-cpp/types.git && cd types/build-files/gnumake && make
+      - run:
+          name: "Install build dependency: Ishiko/C++ Color"
+          command: cd /workspace/projects/ishiko/cpp && git clone https://github.com/ishiko-cpp/color.git && cd color/build-files/gnumake && make
       - checkout:
           path: /workspace/projects/ishiko/cpp/terminal
       - run:
