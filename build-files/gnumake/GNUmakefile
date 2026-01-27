@@ -37,6 +37,7 @@ endif
 # Additionally, this makefile is customizable with the following
 # settings:
 #
+#      ISHIKO_CPP_COLOR_ROOT  Path to the Ishiko/C++ Color installation
 #      ISHIKO_CPP_BOOST_ROOT  Path to the Boost installation
 #      ISHIKO_CPP_TYPES_ROOT  Path to the Ishiko/C++ Types installation
 
@@ -65,6 +66,8 @@ endif
 # Configurable settings:
 # 
 
+# Path to the Ishiko/C++ Color installation
+ISHIKO_CPP_COLOR_ROOT ?= $(ISHIKO_CPP_ROOT)/color
 # Path to the Boost installation
 ISHIKO_CPP_BOOST_ROOT ?= $(BOOST_ROOT)
 # Path to the Ishiko/C++ Types installation
@@ -79,7 +82,7 @@ all: ../bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),IshikoTerminal
 	$(RANLIB) $@
 
 $(_builddir)IshikoTerminal_TerminalOutput.o: ../../src/TerminalOutput.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_TYPES_ROOT)/include -I../../include/Ishiko/Terminal -std=c++11 ../../src/TerminalOutput.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_COLOR_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_TYPES_ROOT)/include -I../../include/Ishiko/Terminal -std=c++11 ../../src/TerminalOutput.cpp
 
 clean:
 	rm -f $(_builddir)*.o
