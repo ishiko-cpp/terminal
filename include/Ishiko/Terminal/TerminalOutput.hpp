@@ -4,7 +4,7 @@
 #ifndef GUARD_ISHIKO_CPP_TERMINAL_TERMINALOUTPUT_HPP
 #define GUARD_ISHIKO_CPP_TERMINAL_TERMINALOUTPUT_HPP
 
-#include <Ishiko/Types.hpp>
+#include <Ishiko/Colors.hpp>
 #include <string>
 #include <cstdio>
 
