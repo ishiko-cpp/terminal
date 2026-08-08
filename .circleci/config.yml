@@ -25,6 +25,9 @@ jobs:
           name: "Install test dependency: Ishiko/C++ Memory"
           command: cd /workspace/projects/ishiko/cpp && git clone https://github.com/ishiko-cpp/memory.git && cd memory/build-files/gnumake && make
       - run:
+          name: "Install test dependency: Ishiko/C++ Types"
+          command: cd /workspace/projects/ishiko/cpp && git clone https://github.com/ishiko-cpp/types.git && cd types/build-files/gnumake && make
+      - run:
           name: "Install test dependency: Ishiko/C++ Collections"
           command: cd /workspace/projects/ishiko/cpp && git clone https://github.com/ishiko-cpp/collections.git && cd collections/build-files/gnumake && make
       - run:
