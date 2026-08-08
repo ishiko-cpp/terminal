@@ -1,6 +1,5 @@
 ishikopath = envvar("ISHIKO_CPP_ROOT");
 import $(ishikopath)/color/include/Ishiko/Color.bkl;
-import $(ishikopath)/types/include/Ishiko/Types.bkl;
 
 toolsets = gnu vs2022 vs2019 vs2017;
 
@@ -9,7 +8,7 @@ vs2022.solutionfile = ../vc17/IshikoTerminal.sln;
 vs2019.solutionfile = ../vc16/IshikoTerminal.sln;
 vs2017.solutionfile = ../vc15/IshikoTerminal.sln;
 
-library IshikoTerminal : IshikoColor, IshikoTypes
+library IshikoTerminal : IshikoColor
 {
     archs = x86 x86_64;
 
@@ -17,7 +16,7 @@ library IshikoTerminal : IshikoColor, IshikoTypes
 
     if ($(toolset) == gnu)
     {
-        cxx-compiler-options = "-std=c++11";
+        cxx-compiler-options = "-std=c++14";
         outputdir = ../../lib;
     }
 

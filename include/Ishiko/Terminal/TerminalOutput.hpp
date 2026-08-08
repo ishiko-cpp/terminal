@@ -5,7 +5,6 @@
 #define GUARD_ISHIKO_CPP_TERMINAL_TERMINALOUTPUT_HPP
 
 #include <Ishiko/Color.hpp>
-#include <Ishiko/Types.hpp>
 #include <string>
 #include <cstdio>
 
