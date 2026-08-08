@@ -2,14 +2,11 @@ version: 2
 jobs:
   build:
     docker:
-      - image: ishiko/gcc-ishiko-cpp-build-prerequisites:0.7.0
+      - image: ishiko/gcc-ishiko-cpp-build-prerequisites:0.9.0
     steps:
       - run: 
           name: "Set ISHIKO_CPP_ROOT environment variable and create workspace directory"
           command: mkdir -p /workspace/projects/ishiko/cpp && echo 'export ISHIKO_CPP_ROOT="/workspace/projects/ishiko/cpp"' >> $BASH_ENV
-      - run:
-          name: "Install build dependency: Ishiko/C++ Types"
-          command: cd /workspace/projects/ishiko/cpp && git clone https://github.com/ishiko-cpp/types.git && cd types/build-files/gnumake && make
       - run:
           name: "Install build dependency: Ishiko/C++ Color"
           command: cd /workspace/projects/ishiko/cpp && git clone https://github.com/ishiko-cpp/color.git && cd color/build-files/gnumake && make
